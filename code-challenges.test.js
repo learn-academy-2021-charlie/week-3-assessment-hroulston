@@ -115,6 +115,13 @@ describe("fibb", () => {
 
 // a) Create a test with expect statements for each of the variables provided.
 
+describe("oddSort", () => {
+  test("returns an array of odd numbers sorted from least to greatest", () => {
+    expect(oddSort(fullArr1)).toEqual([-9, 7, 9, 199])
+    expect(oddSort(fullArr2)).toEqual([-823, 7, 23])
+  })
+})
+
 var fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
 // Expected output: [-9, 7, 9, 199]
 
@@ -124,6 +131,26 @@ var fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 
 // b) Create the function that makes the test pass.
 
+// First I make a function called oddSort
+// Takes in a parameter of an array
+// I need to .filter() through the array and retrurn only odd number values
+// Not sure if I can put those two parameters on filter but I will try
+// Out of the new array of number values I will sort them from least to greatest and return that in a new array.
+
+const oddSort = (array) => {
+  // oooo hoo hoo, in my research of type of I realized I have to create a function to compare the values first to see if they are the right type AND THEN plug that value through the filter. I think this might be how I do my odds only in addition to my numbers...maybe a logical operator I think...
+
+  const oddNums = (value) => {
+    if(typeof(value) === "number" && value % 2 != 0){
+      return value
+    }
+  }
+  let oddArr = array.filter(oddNums)
+  console.log(oddArr)
+  return oddArr.sort((a,b) => a-b)
+}
+
+// Super score! All green! I needed this one after that first challenge. I'm nervous this is the little pick me up before another crazy challenge though lol.  
 
 
 // --------------------3) Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
