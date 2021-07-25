@@ -187,3 +187,10 @@ var numbersToAdd3 = []
 // Takes the first index of the new array and adds that to the next index in array given and pushes that number into the new array
 // Returns the new array
 // Returns empty array if given an empty array
+
+const accSum = (array) => {
+    let sumArr = []
+    sumArr.push(array[0])
+    console.log(sumArr)
+  }
+  console.log(accSum(numbersToAdd1))
