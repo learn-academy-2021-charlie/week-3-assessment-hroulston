@@ -150,12 +150,22 @@ const oddSort = (array) => {
   return oddArr.sort((a,b) => a-b)
 }
 
-// Super score! All green! I needed this one after that first challenge. I'm nervous this is the little pick me up before another crazy challenge though lol.  
+// Super score! All green! I needed this one after that first challenge. I'm nervous this is the little pick me up before another crazy challenge though lol.
 
 
 // --------------------3) Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
 // a) Create a test with expect statements for each of the variables provided.
+
+describe("accSum", () => {
+  test("return an array of the accumulating sum", () => {
+    expect(accSum(numbersToAdd1)).toEqual([2, 6, 51, 60])
+    expect(accSum(numbersToAdd2)).toEqual([0, 7, -1, 11])
+    expect(accSum(numbersToAdd3)).toEqual([])
+
+  })
+})
+
 
 var numbersToAdd1 = [2, 4, 45, 9]
 // Excpected output: [2, 6, 51, 60]
@@ -169,3 +179,11 @@ var numbersToAdd3 = []
 
 
 // b) Create the function that makes the test pass.
+
+// Create a function called accSum
+// Takes a parameter of an array
+// Takes the first index of the array given and pushes it into a new array
+  // It is going to map through array given and for each index add whatever value is in empty array and push the answer to new array.
+// Takes the first index of the new array and adds that to the next index in array given and pushes that number into the new array
+// Returns the new array
+// Returns empty array if given an empty array
