@@ -183,14 +183,28 @@ var numbersToAdd3 = []
 // Create a function called accSum
 // Takes a parameter of an array
 // Takes the first index of the array given and pushes it into a new array
-  // It is going to map through array given and for each index add whatever value is in empty array and push the answer to new array.
-// Takes the first index of the new array and adds that to the next index in array given and pushes that number into the new array
+// Next It is going to map through array given and For Each index add whatever value is in empty array and push the answer to new array.
 // Returns the new array
-// Returns empty array if given an empty array
+// Returns empty array if given an empty array. Might need to do this first.
 
 const accSum = (array) => {
-    let sumArr = []
-    sumArr.push(array[0])
-    console.log(sumArr)
+if(array[0] === undefined){
+  return array
+}
+let sumArr = []
+sumArr.push(array[0])
+array.forEach((value, index) => {
+  // This right here! I was working on this problem sans google since I was traveling/flying and I could not for the life of me figure out why it wasn't passing! My husband saved me just as I was about to throw the computer out of the plane and said I pushed index one already so I need to skip it. Well duh Heather.... back to reality I come.
+  if(index !== 0){
+    // This one took me a minute as well; I kept putting plus one until it was suggested I plug in numbers to see what was happening and realized it needs to be minus one because I skipped the first index.
+   sumArr.push(value + sumArr[index-1])
   }
-  console.log(accSum(numbersToAdd1))
+})
+return sumArr
+}
+console.log(accSum(numbersToAdd1))
+
+// Also in my googling I found this bit of code that I thought was straight code black magic. It works! But after spending 45 min trying to understand it, I just chalked it up to sorcery. I just thought it was cool, and wondered if you had any way of breaking this down or knowing?
+
+// let cumSum = (sum => value => sum += value)(0);
+// return array.map(cumSum)
