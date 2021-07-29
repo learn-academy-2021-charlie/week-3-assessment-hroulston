@@ -21,6 +21,7 @@
 
 
       // file: src/App.js
+
       class App extends React.Component{
         constructor(props){
           super(props)
@@ -55,6 +56,7 @@
               <Card
                 drawCard={this.drawCard}
                 shuffle={this.shuffle}
+                hand={this.state.hand}
               />
             </>
           )
@@ -62,6 +64,7 @@
       }
 
       // file: src/components/Card.js
+
       class Card extends React.Component{
         render(){
           // No need to change the handStyles or cardStyles variables
@@ -79,10 +82,10 @@
           }
           return(
             <>
-              <button onClick={}>
+              <button onClick={this.props.drawCard}>
                 Click to Draw a Card
               </button>
-              <button onClick={shuffle}>
+              <button onClick={this.props.shuffle}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={handStyles}>
